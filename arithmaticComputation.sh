@@ -3,6 +3,10 @@
 echo "ENTER THE THREE NUMBERS: "
 read a b c
 
-result=$(( $a + $b * $c ))
+result1=$(( $a + $b * $c ))
 
-echo $result
+result2=$(( $a * $b +$c ))
+
+echo $result1
+
+echo $result2
