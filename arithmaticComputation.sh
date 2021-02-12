@@ -24,14 +24,17 @@ arr[3]=$((dict[4]))
 
 echo ${arr[@]}
 
-for (( c=0; c<3; c++ ))
+for (( a=0; a<3; a++ ))
 do
-	if [ ${arr[$c]} -le ${arr[$(($c+1))]} ]
-	then
-		temp=${arr[$c]}
-		arr[$c]=${arr[$(($c+1))]}
-		arr[$(($c+1))]=$temp
-	fi
+	for (( c=0; c<3; c++ ))
+	do
+		if [ ${arr[$c]} -le ${arr[$(($c+1))]} ]
+		then
+			temp=${arr[$c]}
+			arr[$c]=${arr[$(($c+1))]}
+			arr[$(($c+1))]=$temp
+		fi
+	done
 done
 
 echo ${arr[@]}
