@@ -17,9 +17,21 @@ dict[2]=$result2
 dict[3]=$result3
 dict[4]=$result4
 
-a[0]=$((dict[1]))
-a[1]=$((dict[2]))
-a[2]=$((dict[3]))
-a[3]=$((dict[4]))
+arr[0]=$((dict[1]))
+arr[1]=$((dict[2]))
+arr[2]=$((dict[3]))
+arr[3]=$((dict[4]))
 
-echo ${a[@]}
+echo ${arr[@]}
+
+for (( c=0; c<3; c++ ))
+do
+	if [ ${arr[$c]} -le ${arr[$(($c+1))]} ]
+	then
+		temp=${arr[$c]}
+		arr[$c]=${arr[$(($c+1))]}
+		arr[$(($c+1))]=$temp
+	fi
+done
+
+echo ${arr[@]}
